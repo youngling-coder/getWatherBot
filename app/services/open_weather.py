@@ -24,11 +24,11 @@ class WeatherHandler:
         base_template = f"""
 ✅ Requested weather in ***{place}***:
 
-***📄Summary:*** {data["weather"][0]["description"].capitalize()}
-***🌡 Temperature:*** {data["main"]["temp"]}{unit_values["temp"][units]} (feels like {data["main"]["feels_like"]}{unit_values["temp"][units]})
-***💨 Wind:*** {data["wind"]["speed"]}{unit_values["wind"][units]}, 🧭 {cardinal_directions[wind_direction].capitalize()}
-***⛓️ Pressure:*** {data["main"]["grnd_level"]} {unit_values["grnd_level"][units]}
-***💧Humidity:*** {data["main"]["humidity"]}{unit_values["humidity"][units]}
+***📄Summary:*** {data['weather'][0]['description'].capitalize()}
+***🌡 Temperature:*** {data['main']['temp']}{unit_values['temp'][units]} (feels like {data['main']['feels_like']}{unit_values['temp'][units]})
+***💨 Wind:*** {data['wind']['speed']}{unit_values['wind'][units]}, 🧭 {cardinal_directions[wind_direction].capitalize()}
+***⛓️ Pressure:*** {data['main']['grnd_level']} {unit_values['grnd_level'][units]}
+***💧Humidity:*** {data['main']['humidity']}{unit_values['humidity'][units]}
 
 ***✨ Have a nice day!***
 """
@@ -95,11 +95,11 @@ class WeatherHandler:
 
             location_data = await self.__to_location(session=session, place=place)
             location = (location_data["lat"], location_data["lon"])
-            place = f"{flag.flag(location_data["country"])} {location_data["name"]},"
+            place = f"{flag.flag(location_data['country'])} {location_data['name']},"
 
             if location_data.get("state"):
-                place += f" {location_data["state"]},"
+                place += f" {location_data['state']},"
 
-            place += f" {location_data["country"]}"
+            place += f" {location_data['country']}"
             weather = await self.__obtain_weather_info(location=location, units=units)
             return self.__prettify_output(weather, place, units=units)

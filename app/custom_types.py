@@ -11,6 +11,7 @@ class CallbackData:
     settings = "settings"
     donation = "donation"
 
+
 class CallbackSettingsData:
     units_imperial = "units_imperial"
     units_metric = "units_metric"
