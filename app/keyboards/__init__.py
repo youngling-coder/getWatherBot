@@ -1,0 +1,4 @@
+__all__ = ("main_menu_inline_keyboard_markup", "location_menu_reply_keyboard_markup")
+
+from .main_menu_inline_keyboard_markup import main_menu_inline_keyboard_markup
+from .location_menu_reply_keyboard_markup import location_menu_reply_keyboard_markup
